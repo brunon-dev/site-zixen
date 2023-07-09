@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>.: Zixen Trading :.</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/zixen.css" />
+  </head>
+  <body>
+    <nav
+      id="navScroll"
+      class="navbar navbar-expand-lg navbar-light fixed-top"
+      tabindex="0"
+    >
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#secao-02"
+                aria-label="Brings you to the frontpage"
+              >
+                Who we are
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#secao-03"> Carrers </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#secao-04"> Contact us </a>
+            </li>
+          </ul>
+        </div>
+        <a class="navbar-brand pe-4 fs-4" href="#secao-01">
+          <img src="img/as_03.png" style="width: 250px" />
+        </a>
+      </div>
+    </nav>
+    <main>
+      <div id="secao-01" class="secao">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="row justify-content-center text-center">
+              <div class="col-lg-6" style="padding-top: 500px">
+                <h2>Proprietary trading redefined</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="secao-02" class="secao">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="row justify-content-center text-center">
+              <!-- data-aos="fade"-->
+              <div class="col-lg-6 text-center" style="padding-top: 200px">
+                <p class="text-secondary lead">
+                  We are quant traders and technologists with a mission of
+                  exploring ineficiencies in financial markets with algorithmic
+                  trading.
+                </p>
+                <p class="text-secondary lead">
+                  Acting from traditional high frequency trading to DeFi
+                  operations, we maximize our returns with rigorous strategy
+                  development process and systems engineering, always with a
+                  delta-neutral risk tolerance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="secao-03" class="secao">
+        <span class="icone-scroll">
+          <span class="scroll-next scroll"></span>
+        </span>
+      </div>
+      <div id="secao-04" class="secao">
+        <span class="icone-scroll">
+          <span class="scroll-top scroll"></span>
+          <span class="scroll-top scroll"></span>
+        </span>
+      </div>
+    </main>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script>
+    var _AlturaDocumento = $(window).height(); //pega altura da janela
+
+    function AlturaSecao() {
+      $(".secao").height(_AlturaDocumento); //atribui o valor da variável a todas as divs com a classe secao
+    }
+
+    function ScrollSecao() {
+      console.log("entrou");
+      var body = $("html, body");
+      if ($(this).parent(".secao").is("#secao-01")) {
+        //verifica se está na primeira seção e rola para a segunda
+        body.animate({ scrollTop: _AlturaDocumento }, "500");
+      } else if ($(this).parent(".secao").is("#secao-02")) {
+        //verifica se está na segunda seção e rola para a terceira
+        body.animate({ scrollTop: _AlturaDocumento * 2 }, "500");
+      } else if ($(this).parent(".secao").is("#secao-03")) {
+        //verifica se está na terceira seção e rola para a quarta
+        body.animate({ scrollTop: _AlturaDocumento * 3 }, "500");
+      } else {
+        //rola para o início da página
+        body.animate({ scrollTop: 0 }, "800");
+      }
+    }
+
+    $(".icone-scroll").click(ScrollSecao); //chama a função na ação de click no ícone
+
+    $(AlturaSecao); //chama a nossa função só depois que o documento estiver completamente carregado
+  </script>
+</html>
